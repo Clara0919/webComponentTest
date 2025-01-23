@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Component Example</title>
+    <!-- 引入全局 CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/pixeladmin.min.css">
+    <link rel="stylesheet" href="./css/clean.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/widgets.min.css">
+</head>
+<body>
+ <button id='openModalBtn'>打開modal</button>
+  <!-- 使用自定義的 Web Component -->
+  <base-modal id="myModal"  is-show-modal="false" width="400px" height="300px" >
+  <span slot="header">我是slot標題</span>
+  <div slot="body">我是slot內容</div>
+
+  </base-modal>
+
+  <script src="./baseModal.js"></script> <!-- 引入打包後的 JavaScript -->
+  <script>
+     const openModalBtn = document.getElementById('openModalBtn');
+     const myModal = document.getElementById('myModal');
+  
+    
+    console.log('openModalBtn',openModalBtn)
+    // 控制 modal 顯示或隱藏
+    openModalBtn.addEventListener('click', () => {
+      myModal.setAttribute('is-show-modal', 'true'); // 顯示 Modal
+    });
+
+   
+  </script>
+
+</body>
+</html>
